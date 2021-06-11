@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"/>
+  <title>StudBud</title>
+  
+</head>
+
+<body class="app-container">
+
+  <div class="grid-container">
+  <div class="header">
+    <nav>
+      <a href="index.html"><img src="images/LOGO-8.png" width="208.5px" height="61px" >
+      </a>
+    </nav>
+  </div>
+<!-- KANBAN-->
+  <!-- modal -->
+  <div class="modal" id="todo_form">
+    <div class="header">
+      <div class="title-m">Add Todo</div>
+      <button class="btn close-modal">&times;</button>
+    </div>
+    <div class="body">
+      <label for="task">Task:</label>
+      <input type="text" name="task" id="taskInput" required/>
+    
+
+      <input type="submit" value="Add Todo" id="todo_submit" />
+    </div>
+  </div>
+
+  <!-- todo -->
+  <div class="kanban">
+  <div class="todo-container">
+    <div class="status" id="no_status">
+      <h1>TO DO</h1>
+      <button id="add_btn" data-target-modal="#todo_form">+ Add Todo</button>
+      <div class="todo" draggable="true">
+        Write a Chinese Diary Entry 
+        <span class="close">&times;</span>
+      </div>
+    </div>
+    <div class="status">
+      <h1>DOING</h1>
+    </div>
+    <div class="status">
+      <h1>DONE</h1>
+    </div>
+    </div>
+  </div>
+<!-- END KANBAN-->
+
+<!-- library -->
+  <div class="library">
+    <header>
+      <i class="fas fa-book"></i>
+      <h1>MyLibrary</h1> 
+  </header>
+
+  <div class="flex-btn">
+    <button class="add">Add Book</button>
+</div>
+
+      <table class="table book-table">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>ISBN</th>
+                  <th>Read</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody class="bookList">
+
+          </tbody>
+      </table>
+      <div class="container">
+          <form class="book-form">
+              <div class="close">
+                  <i class="fas fa-times" title="Close"></i>
+              </div>
+              <div class="title input-row">
+                  <label for="title">Title: </label>
+                  <input type="text" data-name="title" placeholder="The Hobbit">
+              </div>
+              <div class="author input-row">
+                  <label for="author">Author: </label>
+                  <input type="text" data-name="author" placeholder="J.R.R. Tolkien">
+              </div>
+              <div class="isbn input-row">
+                  <label for="isbn">ISBN: </label>
+                  <input type="number" name="isbn"  placeholder="295" data-name="isbn">
+              </div>
+              <div class="read input-row">
+                  <legend>Have you read the book before?
+                      <label for="yes">
+                          <input type="radio" name="read" value="true" data-name="read" id="read1" checked>
+                          Yes</label>
+                      <label for="no">
+                          <input type="radio" name="read" value="false" data-name="read" id="read2">
+                          No</label>
+                  </legend>
+              </div>
+              <div class="button-row">
+                  <input type="submit" value="Add" class="btn btn-book">
+              </div>
+          </form>
+      </div>
+  </div>
+    
+    <!-- END library -->
+
+
+    <div class="space">
+      <!-- POMODORO -->
+      <h1>Pomodoro Timer</h1>
+    <div id="pomodoro-container">
+        <p id="work" class="label">Work:</p><p id="break" class="label">Break:</p><p id="cycles" class="label">Cycles:</p>
+        <!--Work Timer-->
+        <div id="work-timer" class="timer">
+            <p id="w_minutes">25</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+        </div>
+
+        <!--Cycle Counter-->
+        <p id="counter" class="timer">0</p>
+
+        <!--Break Timer-->
+        <div id="break-timer" class="timer">
+            <p id="b_minutes">05</p><p class="semicolon">:</p><p id="b_seconds">00</p>
+        </div>
+        <button id="start" class="pomodoro-btn">Start</button>
+        <button id="stop" class="pomodoro-btn">Pause</button>
+        <button id="reset" class="pomodoro-btn">Reset</button>
+    </div>
+    <br>
+    <!-- END POMODORO -->
+    <h1>Stopwatch Timer</h1>
+    <div id="stopwatch-container">
+    <h1 id="timer">00 : 00 . 000</h1>
+  <div>
+    <button id="toggle">Start</button>
+    <button id="sw-reset">Reset</button>
+  </div>
+</div>
+    </div>
+  
+
+  <div class="footer">
+    <div class="right-col">
+    <img id="icon" src="images/play-8.png">
+    <audio id="mySong" > 
+    </audio>
+    </div>
+  </div>
+</div>
+  
+ 
+
+
+  <script src="server.js">
+  </script>
+  <script src="https://kit.fontawesome.com/e63dccc6aa.js" crossorigin="anonymous"></script>
+  <script src="public/components/kanban.js"></script>
+  <script src="public/components/library.js"></script>
+  <script src="public/components/pomodoro.js"></script>
+  <script src="public/components/stopwatch.js"></script>
+  <script src="public/main.js"></script>
+  <script src="public/components/music.js"></script>
+</body>
+
+</html>
